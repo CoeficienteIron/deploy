@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 8080
-CMD [ "start", "server.ts" ]
+CMD [ "npm", "start" ]
