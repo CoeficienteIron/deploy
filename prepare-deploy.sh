@@ -12,7 +12,7 @@ echo "Archivos movidos a dockerDeployImage"
 echo "Construyendo el build de front"
 npm --prefix ../frontend/ run build
 echo "Construido el build de front"
-cp -rf ../frontend/build/ ./dockerDeployImage
+cp -rf ../frontend/build/ ./dockerDeployImage/build
 echo "Movido build a dockerDeployImage"
 npm --prefix ../app/ run build
 echo "Creada dist para la APP"
