@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
+    "types": ["jest"],
+    "isolatedModules": false,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noImplicitAny": false,
+  }
+}

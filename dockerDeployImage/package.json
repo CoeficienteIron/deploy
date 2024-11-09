@@ -1,0 +1,55 @@
+{
+  "name": "coeficiente-iron-backend-mvp",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start": "npx tsx server.ts",
+    "compile": "npx tsc",
+    "hot-start": "nodemon server.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test-esm": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" npx jest -c=jest-esm.config.js --no-cache --forceExit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.3",
+    "jest": "^29.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^5.13.22",
+    "nodemon": "^3.0.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": "12.16.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "@jest/globals": "^29.7.0",
+    "@shelf/jest-mongodb": "^4.3.2",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/express-session": "^1.18.0",
+    "@types/jest": "^29.5.14",
+    "@types/mongoose": "^5.11.97",
+    "babel-jest": "^29.7.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.49.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "node-mocks-http": "^1.16.1",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2"
+  }
+}
