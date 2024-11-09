@@ -45,6 +45,9 @@ const frontendRoutes = [
 	"/register",
 	"/gettrain",
 ];
+
+app.use('/static', express.static(path.join(`${__dirname}/frontDist/static`)));
+
 app.route(frontendRoutes).get((_req, res) => {
 	res.sendFile(path.join(`${__dirname}/frontDist/index.html`));
 });
