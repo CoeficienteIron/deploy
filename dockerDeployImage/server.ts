@@ -46,7 +46,7 @@ const frontendRoutes = [
 	"/gettrain",
 ];
 app.route(frontendRoutes).get((_req, res) => {
-	res.sendFile(path.join(`${__dirname}/dist/index.html`));
+	res.sendFile(path.join(`${__dirname}/frontDist/index.html`));
 });
 const appWebRoutes = ["/app", "/firstonboarding", "/contact"];
 
