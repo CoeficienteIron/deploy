@@ -6,7 +6,7 @@ const jestConfig = {
 	...createDefaultEsmPreset({
 		tsconfig: "tsconfig-esm.json",
 	}),
-	setupFilesAfterEnv: ["<rootDir>/setup.ts"],
+	// setupFilesAfterEnv: ["<rootDir>/setup.ts"],
 	moduleNameMapper: {
 		"^mongodb$": "<rootDir>/__mocks__/mongodb.js",
 	},

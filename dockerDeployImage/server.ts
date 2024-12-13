@@ -58,9 +58,15 @@ app.route(appWebRoutes).get((_req, res) => {
 });
 
 
-app.listen(port, () => {
-	// eslint-disable-next-line no-console
-	console.log("Escuchando en puerto:", port);
-});
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+	console.log('Escuchando PUERTO')
+	app.listen(port, () => {
+		// eslint-disable-next-line no-console
+		console.log("Escuchando en puerto:", port);
+	});
+}
+
+
 export default collection;
 export { app }

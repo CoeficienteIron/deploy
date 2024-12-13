@@ -22,6 +22,8 @@ function calculateStrongRecords(
 			);
 		});
 
+		console.log(recordsFiltersByExercise.length, 'Encuentra varios')
+
 		const recordByExercise = sortByMax(recordsFiltersByExercise);
 		if (!recordByExercise) {
 			return {

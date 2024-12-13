@@ -2,6 +2,12 @@
 import { jest } from "@jest/globals";
 
 const findOneMock = jest.fn();
+const toArrayMock = jest.fn();
+const find = () => {
+	return {
+		toArray: toArrayMock,
+	};
+};
 
 const MongoClient = jest.fn().mockImplementation(() => {
 	return {
@@ -13,8 +19,9 @@ const MongoClient = jest.fn().mockImplementation(() => {
 		insertOne: jest.fn().mockResolvedValue({ insertedId: "mockedId" }),
 		// @ts-ignore
 		findOne: findOneMock,
+		find: find,
 		// Agrega otros métodos que uses en tus tests
 	};
 });
 
-export { MongoClient, findOneMock };
+export { MongoClient, findOneMock, toArrayMock };

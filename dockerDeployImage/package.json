@@ -8,7 +8,6 @@
     "start": "npx tsx server.ts",
     "compile": "npx tsc",
     "hot-start": "nodemon server.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test-esm": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" npx jest -c=jest-esm.config.js --no-cache --forceExit"
   },
   "author": "",

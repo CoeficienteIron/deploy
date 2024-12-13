@@ -73,14 +73,6 @@ function filterByLast(strengthTraining, exercise) {
 		return 0;
 	});
 
-	exercisesSorted.forEach((exercise, index) => {
-		if (
-			new Date(exercise.date).getTime() ===
-			new Date("2024-07-10T20:35:45.413+00:00").getTime()
-		) {
-		}
-	});
-
 	return exercisesSorted[0];
 }
 
