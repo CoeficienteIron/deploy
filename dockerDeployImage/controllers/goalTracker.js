@@ -43,7 +43,13 @@ async function infoForGT(_req, res) {
 async function gtTrainRecords(req, res) {
 	const { quarter, year } = req.query
 	const user = await collection.findOne({ email: "cem20903@gmail.com" });
-	const allRecords = allInfoRecords(user, parseInt(year), quarter);
+	let allRecords
+	if(!quarter) {
+		allRecords = allInfoRecords(user, 2024, 'ALL');
+	} else {
+		allRecords = allInfoRecords(user, parseInt(year), quarter);
+	}
+	 
 	res.status(200).json(allRecords);
 }
 
