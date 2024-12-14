@@ -18,6 +18,36 @@ async function infoForGT(req, res) {
 	}
 
 	const { totalCI } = allInfoRecords(user, currentYear, currentQuarter);
+
+
+	if(!quarter) {
+
+		const initalWeight = 90;
+	const currentWeight = user?.normalWeight;
+	const weightGoalToLose = 10;
+
+	const currentWeightLoosed = initalWeight - currentWeight;
+
+	const percentajeWeight =
+		Math.round(((currentWeightLoosed * 100) / weightGoalToLose) * 100) / 100;
+
+	const totalPercentage = percentajeWeight
+
+	const roundTotalCI = Math.round(totalCI * 100) / 100;
+
+	res.json({
+		percentajeWeight,
+		percentajeCI: roundTotalCI > 100 ? 100 : roundTotalCI,
+		infoWeight: {
+			percentage: totalPercentage,
+			tableInfo: [
+				{ title: "Peso", current: currentWeight, total: 80, percentaje: percentajeWeight }, 
+			]
+		},
+	});
+
+	} else {
+
 	const initalWeight = 86;
 	const currentWeight = user?.normalWeight;
 	const weightGoalToLose = 6;
@@ -50,6 +80,7 @@ async function infoForGT(req, res) {
 				{ title: "Grasa Corporal", current: 23.4, total: 20, percentaje: percentageFat}],
 		},
 	});
+	}
 }
 
 async function gtTrainRecords(req, res) {
