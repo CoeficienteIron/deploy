@@ -1,11 +1,23 @@
 import collection from "../server.ts";
 import { allInfoRecords } from "../utils/calculateMaxRecords.ts";
 
-async function infoForGT(_req, res) {
+async function infoForGT(req, res) {
+	const { quarter, year } = req.query
+
 
 	const user = await collection.findOne({ email: "cem20903@gmail.com" });
 
-	const { totalCI } = allInfoRecords(user, 2024, 'ALL');
+	let currentYear = 0
+	let currentQuarter = ''
+	if(!quarter) {
+		currentYear = 2024
+		currentQuarter = 'ALL'
+	} else {
+		currentYear = year
+		currentQuarter = quarter
+	}
+
+	const { totalCI } = allInfoRecords(user, currentYear, currentQuarter);
 	const initalWeight = 86;
 	const currentWeight = user?.normalWeight;
 	const weightGoalToLose = 6;
