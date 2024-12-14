@@ -41,7 +41,7 @@ async function infoForGT(req, res) {
 		infoWeight: {
 			percentage: totalPercentage,
 			tableInfo: [
-				{ title: "Peso", current: currentWeight, total: 80, percentaje: percentajeWeight }, 
+				{ title: "Peso", current: currentWeight, total: 80, percentage: percentajeWeight }, 
 			]
 		},
 	});
