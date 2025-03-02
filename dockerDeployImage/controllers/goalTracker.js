@@ -13,18 +13,19 @@ async function infoForGT(req, res) {
 		currentYear = 2024
 		currentQuarter = 'ALL'
 	} else {
-		currentYear = year
+		currentYear = parseFloat(year)
 		currentQuarter = quarter
 	}
 
+	console.log(currentQuarter, currentYear, 'lo pido con esto')
 	const { totalCI } = allInfoRecords(user, currentYear, currentQuarter);
 
-
 	if(!quarter) {
+		// Temporal, cuando jubile el otro panel esto se va
 
 		const initalWeight = 90;
-	const currentWeight = user?.normalWeight;
-	const weightGoalToLose = 10;
+		const currentWeight = user?.normalWeight;
+		const weightGoalToLose = 10;
 
 	const currentWeightLoosed = initalWeight - currentWeight;
 
@@ -57,27 +58,26 @@ async function infoForGT(req, res) {
 	const percentajeWeight =
 		Math.round(((currentWeightLoosed * 100) / weightGoalToLose) * 100) / 100;
 
-	const INITIAL_FAT_PERCENTAGE = 25
-	const CURRENT_FAT_PERCENTAGE = 23.4
-	const GOAL_FAT_PERCENTAGE = 15
+	// const INITIAL_FAT_PERCENTAGE = 25
+	// const CURRENT_FAT_PERCENTAGE = 23.4
+	// const GOAL_FAT_PERCENTAGE = 15
+	// const CURRENT_FAT_PERCENTAGE_LOOSED = INITIAL_FAT_PERCENTAGE - CURRENT_FAT_PERCENTAGE
+	// const percentageFat = Math.round(((CURRENT_FAT_PERCENTAGE_LOOSED * 100) / GOAL_FAT_PERCENTAGE) * 100) / 100;
+	// const totalPercentage = (percentajeWeight + percentageFat) / 2
 
-	const CURRENT_FAT_PERCENTAGE_LOOSED = INITIAL_FAT_PERCENTAGE - CURRENT_FAT_PERCENTAGE
-
-	const percentageFat = Math.round(((CURRENT_FAT_PERCENTAGE_LOOSED * 100) / GOAL_FAT_PERCENTAGE) * 100) / 100;
-
-
-	const totalPercentage = (percentajeWeight + percentageFat) / 2
+	const totalPercentage = percentajeWeight
 
 	const roundTotalCI = Math.round(totalCI * 100) / 100;
-
+	
 	res.json({
-		percentajeWeight,
+		percentajeWeight: totalPercentage,
 		percentajeCI: roundTotalCI > 100 ? 100 : roundTotalCI,
 		infoWeight: {
 			percentage: totalPercentage,
 			tableInfo: [
 				{ title: "Peso", current: currentWeight, total: 80, percentaje: percentajeWeight }, 
-				{ title: "Grasa Corporal", current: 23.4, total: 20, percentaje: percentageFat}],
+				// { title: "Grasa Corporal", current: 23.4, total: 20, percentaje: percentageFat},
+			]
 		},
 	});
 	}

@@ -280,7 +280,9 @@ async function appDashboard(req, res) {
 }
 
 async function appRunning(req, res) {
-	const email = res.locals.email;
+	// TODO: Algo falla, ya veremos el que
+	// const email = res.locals.email || ;
+	const email = 'cem20903@gmail.com'
 	const { strengthTraining } = await collection.findOne({
 		email,
 	});
